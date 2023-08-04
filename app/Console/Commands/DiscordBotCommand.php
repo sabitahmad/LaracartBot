@@ -2,16 +2,8 @@
 
 namespace App\Console\Commands;
 
-use App\DiscordCommands\Ping;
-use App\DiscordCommands\Shop;
-use Carbon\Carbon;
-use Discord\Builders\CommandBuilder;
-use Discord\Builders\MessageBuilder;
 use Discord\Discord;
 use Discord\Exceptions\IntentException;
-use Discord\Parts\Channel\Message;
-use Discord\Parts\Interactions\Interaction;
-use Discord\WebSockets\Event;
 use Discord\WebSockets\Intents;
 use File;
 use Illuminate\Console\Command;

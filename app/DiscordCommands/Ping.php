@@ -6,9 +6,7 @@ use Discord\Builders\CommandBuilder;
 use Discord\Builders\MessageBuilder;
 use Discord\Discord;
 use Discord\Parts\Interactions\Interaction;
-use Discord\WebSockets\Event;
 use Exception;
-use Illuminate\Support\Facades\Log;
 
 class Ping
 {

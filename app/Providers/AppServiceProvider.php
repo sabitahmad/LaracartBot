@@ -2,9 +2,6 @@
 
 namespace App\Providers;
 
-use Discord\Discord;
-use Discord\Exceptions\IntentException;
-use Discord\WebSockets\Intents;
 use Illuminate\Support\ServiceProvider;
 
 class AppServiceProvider extends ServiceProvider
