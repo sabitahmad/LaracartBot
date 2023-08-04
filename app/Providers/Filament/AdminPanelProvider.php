@@ -59,6 +59,6 @@ class AdminPanelProvider extends PanelProvider
                     ->navigationIcon('heroicon-o-photo')
                     ->navigationGroup('Content')
                     ->navigationSort(3)
-            ]);
+            ])->viteTheme('resources/css/filament/admin/theme.css');
     }
 }
