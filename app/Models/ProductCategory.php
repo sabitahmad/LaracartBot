@@ -7,11 +7,8 @@ use Illuminate\Database\Eloquent\Relations\HasMany;
 
 class ProductCategory extends Model
 {
-
     public function products(): HasMany
     {
         return $this->hasMany(Product::class, 'product_category_id');
     }
-
-
 }

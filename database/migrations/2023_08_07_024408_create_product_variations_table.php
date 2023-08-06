@@ -9,11 +9,11 @@ return new class extends Migration {
     {
         Schema::create('product_variations', function (Blueprint $table) {
             $table->id();
-            $table->string('size');
-            $table->string('color');
-            $table->integer('quantity');
-            $table->foreignId('product_id')->constrained('products')->cascadeOnDelete();
-            $table->foreignId('product_variation_image_id')->constrained('media');
+            $table->string('size')->nullable();
+            $table->string('color')->nullable();
+            $table->foreignId('product_id');
+            $table->decimal('price', 10)->nullable();
+            $table->foreignId('product_variation_image_id')->nullable()->references('id')->on('media');
             $table->integer('stock')->default(0); // Add stock column
             $table->timestamps();
         });
