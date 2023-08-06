@@ -41,7 +41,7 @@ class DiscordBotCommand extends Command
                 $panelCategories = ProductCategory::orderBy('id')->get();
 
                 foreach ($panelCategories as $panelCategory) {
-                    $categoryName = str_replace(" ", "-", strtolower($panelCategory->name));
+                    $categoryName = str_replace(' ', '-', strtolower($panelCategory->name));
                     $existingChannel = $guild->channels->filter(function ($existingChannel) use ($categoryName) {
                         return $existingChannel->name === $categoryName && $existingChannel->type === Channel::TYPE_GUILD_TEXT;
                     })->first();
@@ -56,8 +56,8 @@ class DiscordBotCommand extends Command
                             // Update channel properties
                             $existingChannel->name = $categoryName;
                             $existingChannel->topic = $panelCategory->description;
-                            $guild->channels->save($existingChannel)->done(function (Channel $channel) use ($panelCategory){
-                                Log::info('Channel updated => ' . $channel->id);
+                            $guild->channels->save($existingChannel)->done(function (Channel $channel) {
+                                Log::info('Channel updated => '.$channel->id);
                             });
                         }
                     } else {
@@ -67,12 +67,12 @@ class DiscordBotCommand extends Command
                             'type' => Channel::TYPE_GUILD_TEXT,
                             'topic' => $panelCategory->description,
                             'nsfw' => false,
-                            'parent_id' => '1137375609648066671'
+                            'parent_id' => '1137375609648066671',
                             // more options in Docs
                         ]);
 
                         $guild->channels->save($newChannel)->done(function (Channel $channel) use ($panelCategory) {
-                            Log::info('Channel created => ' . $channel->id);
+                            Log::info('Channel created => '.$channel->id);
                             $panelCategory->channel_id = $channel->id;
                             $panelCategory->save();
                             $channel->setPermissions($channel->guild->roles->get('name', '@everyone'),
@@ -95,7 +95,7 @@ class DiscordBotCommand extends Command
                             return $category->channel_id === $existingChannel->id;
                         });
 
-                        if (!$channelExistsModel) {
+                        if (! $channelExistsModel) {
                             $guild->channels->delete($existingChannel->id)->done(function (Channel $channel) {
                                 echo 'Deleted channel: ', $channel->name;
                             });
@@ -104,7 +104,6 @@ class DiscordBotCommand extends Command
                 }
 
             });
-
 
             $directory = app_path('DiscordCommands');
 

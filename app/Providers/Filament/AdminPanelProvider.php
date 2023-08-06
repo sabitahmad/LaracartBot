@@ -58,7 +58,7 @@ class AdminPanelProvider extends PanelProvider
                     ->pluralLabel('Media')
                     ->navigationIcon('heroicon-o-photo')
                     ->navigationGroup('Content')
-                    ->navigationSort(3)
+                    ->navigationSort(3),
             ])->viteTheme('resources/css/filament/admin/theme.css');
     }
 }

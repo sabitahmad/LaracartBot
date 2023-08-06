@@ -9,7 +9,6 @@ use Discord\Parts\Interactions\Interaction;
 
 class Shop
 {
-
     /**
      * @throws \Exception
      */
@@ -24,15 +23,10 @@ class Shop
             )
         );
 
-
-
         $discord->listenCommand('shop', function (Interaction $interaction) {
             // Respond the /ping command with interaction message "pong!"
             $interaction->respondWithMessage(MessageBuilder::new()->setContent('shop!'));
         });
 
-
-
     }
-
 }

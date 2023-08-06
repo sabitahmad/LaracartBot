@@ -124,8 +124,6 @@ return [
 
     'key' => env('APP_KEY'),
 
-    'discord_bot_token' => env('DISCORD_API_BOT_TOKEN'),
-
     'cipher' => 'AES-256-CBC',
 
     /*

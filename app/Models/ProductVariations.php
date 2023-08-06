@@ -8,7 +8,6 @@ use Illuminate\Database\Eloquent\Relations\BelongsTo;
 
 class ProductVariations extends Model
 {
-
     public function product(): BelongsTo
     {
         return $this->belongsTo(Product::class);
@@ -16,7 +15,6 @@ class ProductVariations extends Model
 
     public function variation_image(): BelongsTo
     {
-        return $this->belongsTo(Media::class, 'product_variation_image_id','id');
+        return $this->belongsTo(Media::class, 'product_variation_image_id', 'id');
     }
-
 }
